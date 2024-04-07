@@ -73,3 +73,4 @@ def referals(request):
         print(current_user[0]['referal_code'])
         current_user_referal_used=User.objects.filter(referal_code_used=current_user[0]['referal_code']).values('username','date_joined')
         return JsonResponse({f'list of user that used {current_user[0]["referal_code"]} code':list(current_user_referal_used)})
+    return JsonResponse({'message':"Only GET Method Allowed"})
